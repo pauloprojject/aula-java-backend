@@ -2,10 +2,15 @@ package br.iesp.edu.api.service;
 
 
 import br.iesp.edu.api.entity.Pessoa;
+import br.iesp.edu.api.repository.CartaoRepository;
 import br.iesp.edu.api.repository.PessoaRepository;
+import br.iesp.edu.api.util.Criptografar;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 @Service
@@ -14,7 +19,17 @@ public class PessoaService {
     @Autowired
     private PessoaRepository repository;
 
-    public Pessoa salvar(Pessoa pessoa){
+    @Autowired
+    private CartaoRepository cartaoRepository;
+
+    public Pessoa salvar(Pessoa pessoa) throws NoSuchAlgorithmException, UnsupportedEncodingException{
+
+        String senhaCriptografada = Criptografar.Executar(pessoa.getSenha());
+
+        pessoa.setSenha(senhaCriptografada);
+
+        cartaoRepository.save(pessoa.getCartao());
+
         return repository.save(pessoa);
     }
 
@@ -32,8 +47,6 @@ public class PessoaService {
     public List<Pessoa> listar(){
         return repository.findAll();
     }
-
-
 
 
 }

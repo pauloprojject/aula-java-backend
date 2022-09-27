@@ -5,6 +5,8 @@ import br.iesp.edu.api.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 @RestController
@@ -25,7 +27,7 @@ public class PessoaResource {
     }
 
     @PostMapping
-    void addUser(@RequestBody Pessoa usuario) {
+    void addUser(@RequestBody Pessoa usuario) throws NoSuchAlgorithmException, UnsupportedEncodingException {
         pessoaService.salvar(usuario);
     }
 
