@@ -35,7 +35,7 @@ public class Pessoa {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private Integer id;
 
     private String nome;
 

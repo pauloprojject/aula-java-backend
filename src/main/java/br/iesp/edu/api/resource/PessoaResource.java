@@ -27,8 +27,18 @@ public class PessoaResource {
     }
 
     @PostMapping
-    void addUser(@RequestBody Pessoa usuario) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+    public void addUser(@RequestBody Pessoa usuario) throws NoSuchAlgorithmException, UnsupportedEncodingException {
         pessoaService.salvar(usuario);
+    }
+
+    @DeleteMapping
+    public void excluir(@RequestBody Pessoa pessoa) throws Exception{
+        pessoaService.deletar(pessoa.getId());
+    }
+
+    @PutMapping
+    public Pessoa atualizar(@RequestBody Pessoa pessoa) throws Exception{
+        return service.atualizar(pessoa);
     }
 
 }

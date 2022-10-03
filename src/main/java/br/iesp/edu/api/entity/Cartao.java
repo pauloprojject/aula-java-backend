@@ -20,7 +20,7 @@ public class Cartao {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Integer id;
     @CreditCardNumber
     private String numeroCartao;
     @JsonFormat(pattern = "MM/yyyy")

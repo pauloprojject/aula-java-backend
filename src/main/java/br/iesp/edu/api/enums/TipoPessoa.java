@@ -1,9 +1,5 @@
 package br.iesp.edu.api.enums;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
 import br.iesp.edu.api.interfaces.CnpjGroup;
 import br.iesp.edu.api.interfaces.CpfGroup;
 import lombok.Getter;
