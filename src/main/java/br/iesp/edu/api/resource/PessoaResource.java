@@ -38,7 +38,6 @@ public class PessoaResource {
 
     @PutMapping
     public Pessoa atualizar(@RequestBody Pessoa pessoa) throws Exception{
-        return service.atualizar(pessoa);
+        return pessoaService.atualizar(pessoa);
     }
-
 }
