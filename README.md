@@ -41,4 +41,12 @@ utilização apenas sobre as IDE's do itens 1.4.1.
 Update: 22/08/2022
 
 
+## Integrantes
 
+Paulo Victor Calixto Silva
+
+Cleonice Valéria de Oliveira Celestino
+
+Yure Almeida Diniz
+
+Roberto da Fonseca Junior
