@@ -5,6 +5,8 @@ import lombok.Setter;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 
@@ -21,7 +23,10 @@ import org.hibernate.validator.constraints.br.CPF;
 import org.hibernate.validator.group.GroupSequenceProvider;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -59,4 +64,6 @@ public class Pessoa {
     @CPF(groups = CpfGroup.class)
     @CNPJ(groups = CnpjGroup.class)
     private String cpfOuCnpj;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "PessoaFilme")
+    private Set<PessoaFilme> Favoritos;
 }

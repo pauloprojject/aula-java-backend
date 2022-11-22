@@ -1,6 +1,8 @@
 package br.iesp.edu.api.resource;
 
+import br.iesp.edu.api.entity.Filme;
 import br.iesp.edu.api.entity.Pessoa;
+import br.iesp.edu.api.entity.UserLogin;
 import br.iesp.edu.api.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +12,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/pessoa")
+@RequestMapping("/api/pessoa")
 public class PessoaResource {
 
 
@@ -40,4 +42,14 @@ public class PessoaResource {
     public Pessoa atualizar(@RequestBody Pessoa pessoa) throws Exception{
         return pessoaService.atualizar(pessoa);
     }
+
+    // @GetMapping("/favoritos")
+    // public List<Filme> getFavoritos(Pessoa pessoa){
+    //     return pessoa.getFavoritos();
+    // }
+
+    // @PostMapping
+    // public void login(@RequestBody UserLogin userLogin) throws Exception{
+    //     return pessoaService.Login()
+    // }
 }

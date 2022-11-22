@@ -1,6 +1,7 @@
 package br.iesp.edu.api.service;
 
 
+import br.iesp.edu.api.entity.Filme;
 import br.iesp.edu.api.entity.Pessoa;
 import br.iesp.edu.api.repository.CartaoRepository;
 import br.iesp.edu.api.repository.PessoaRepository;
@@ -47,6 +48,4 @@ public class PessoaService {
     public List<Pessoa> listar(){
         return repository.findAll();
     }
-
-
 }

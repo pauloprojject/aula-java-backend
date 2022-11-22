@@ -15,7 +15,7 @@ import br.iesp.edu.api.entity.Cartao;
 import br.iesp.edu.api.service.CartaoService;
 
 @RestController
-@RequestMapping("/cartao")
+@RequestMapping("/api/cartao")
 public class CartaoResource {
     
     @Autowired

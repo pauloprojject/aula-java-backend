@@ -16,7 +16,7 @@ import br.iesp.edu.api.entity.Filme;
 import br.iesp.edu.api.service.FilmeService;
 
 @RestController
-@RequestMapping("/filme")
+@RequestMapping("/api/filme")
 public class FilmeResource {
     
     @Autowired
