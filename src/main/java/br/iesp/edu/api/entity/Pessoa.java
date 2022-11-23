@@ -6,9 +6,12 @@ import lombok.Setter;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Null;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -52,9 +55,10 @@ public class Pessoa {
 
     private String senha;
 
-    @Transient
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private Cartao cartao;
+    // @Null
+    // @JsonInclude(JsonInclude.Include.NON_NULL)
+    @OneToMany(mappedBy = "pessoa")
+    private Set<Cartao> cartao;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "tipo_pessoa")
@@ -64,6 +68,13 @@ public class Pessoa {
     @CPF(groups = CpfGroup.class)
     @CNPJ(groups = CnpjGroup.class)
     private String cpfOuCnpj;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "PessoaFilme")
-    private Set<PessoaFilme> Favoritos;
+
+    @ManyToMany
+    @JoinTable(name = "pessoa_filme",
+    joinColumns = 
+            @JoinColumn(name = "pessoa_id", referencedColumnName = "id", nullable = true),
+    inverseJoinColumns = 
+            @JoinColumn(name = "filme_id", referencedColumnName = "id", nullable = true)
+    )
+    private Set<Filme> filmes;
 }

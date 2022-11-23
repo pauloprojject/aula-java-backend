@@ -29,7 +29,7 @@ public class PessoaService {
 
         pessoa.setSenha(senhaCriptografada);
 
-        cartaoRepository.save(pessoa.getCartao());
+        cartaoRepository.saveAll(pessoa.getCartao());
 
         return repository.save(pessoa);
     }
