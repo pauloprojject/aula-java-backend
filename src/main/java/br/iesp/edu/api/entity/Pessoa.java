@@ -16,6 +16,7 @@ import javax.validation.constraints.Null;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import br.iesp.edu.api.enums.Perfil;
 import br.iesp.edu.api.enums.TipoPessoa;
 import br.iesp.edu.api.interfaces.CnpjGroup;
 import br.iesp.edu.api.interfaces.CpfGroup;
@@ -69,6 +70,10 @@ public class Pessoa {
     @CNPJ(groups = CnpjGroup.class)
     private String cpfOuCnpj;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "perfil")
+    private Perfil perfil;
+    
     @ManyToMany
     @JoinTable(name = "pessoa_filme",
     joinColumns = 

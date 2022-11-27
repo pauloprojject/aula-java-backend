@@ -4,6 +4,8 @@ import br.iesp.edu.api.entity.Filme;
 import br.iesp.edu.api.entity.Pessoa;
 import br.iesp.edu.api.entity.UserLogin;
 import br.iesp.edu.api.service.PessoaService;
+import br.iesp.edu.api.util.PessoaFilmesSeries;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,10 +45,10 @@ public class PessoaResource {
         return pessoaService.atualizar(pessoa);
     }
 
-    // @GetMapping("/favoritos")
-    // public List<Filme> getFavoritos(Pessoa pessoa){
-    //     return pessoa.getFavoritos();
-    // }
+    @GetMapping("/favoritos")
+    public List<Filme> getFavoritos(@RequestParam PessoaFilmesSeries pessoaFilmesSeries){
+        return pessoaService.getFavoritos(pessoaFilmesSeries);
+    }
 
     // @PostMapping
     // public void login(@RequestBody UserLogin userLogin) throws Exception{

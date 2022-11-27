@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.iesp.edu.api.entity.Filme;
 import br.iesp.edu.api.service.FilmeService;
+import br.iesp.edu.api.util.FilmeAdmin;
 
 @RestController
 @RequestMapping("/api/filme")
@@ -23,8 +24,8 @@ public class FilmeResource {
     private FilmeService service;
 
     @PostMapping
-    public Filme salvar(@RequestBody Filme filme){
-        return service.salvar(filme);
+    public Filme salvar(@RequestBody FilmeAdmin filmeAdmin) throws Exception{
+        return service.salvar(filmeAdmin);
     }
 
     @PutMapping
