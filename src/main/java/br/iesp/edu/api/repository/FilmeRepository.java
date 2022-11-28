@@ -8,5 +8,5 @@ import br.iesp.edu.api.entity.Pessoa;
 
 @Repository
 public interface FilmeRepository extends JpaRepository<Filme, Integer>{
-    public Pessoa findByCpf(String cpf);
+    // public Pessoa findByCpf(String cpf);
 }

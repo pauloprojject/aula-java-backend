@@ -11,6 +11,7 @@ import br.iesp.edu.api.entity.Filme;
 import br.iesp.edu.api.entity.Pessoa;
 import br.iesp.edu.api.enums.Perfil;
 import br.iesp.edu.api.repository.FilmeRepository;
+import br.iesp.edu.api.repository.PessoaRepository;
 import br.iesp.edu.api.util.Criptografar;
 import br.iesp.edu.api.util.FilmeAdmin;
 
@@ -20,8 +21,11 @@ public class FilmeService {
     @Autowired
     private FilmeRepository repository;
 
+    @Autowired
+    private PessoaRepository pessoaRepository;
+
     public Filme salvar(FilmeAdmin filmeAdmin) throws Exception{
-        Pessoa pessoa = repository.findByCpf(filmeAdmin.getCpf());
+        Pessoa pessoa = pessoaRepository.findByCpfOuCnpj(filmeAdmin.getCpf());
         if(pessoa == null){
             throw new Exception("Pessoa não cadastrada");
         }
