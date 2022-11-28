@@ -32,9 +32,9 @@ public class PessoaService {
 
         pessoa.setSenha(senhaCriptografada);
 
-        cartaoRepository.saveAll(pessoa.getCartao());
+        Pessoa pessoaSalva = repository.save(pessoa);
 
-        return repository.save(pessoa);
+        return pessoaSalva;
     }
 
     public Pessoa atualizar(Pessoa pessoa) throws Exception {

@@ -49,9 +49,4 @@ public class PessoaResource {
     public List<Filme> getFavoritos(@RequestParam PessoaFilmesSeries pessoaFilmesSeries){
         return pessoaService.getFavoritos(pessoaFilmesSeries);
     }
-
-    // @PostMapping
-    // public void login(@RequestBody UserLogin userLogin) throws Exception{
-    //     return pessoaService.Login()
-    // }
 }

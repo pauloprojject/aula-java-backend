@@ -56,8 +56,7 @@ public class Pessoa {
 
     private String senha;
 
-    // @Null
-    // @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Null
     @OneToMany(mappedBy = "pessoa")
     private Set<Cartao> cartao;
 
@@ -74,6 +73,7 @@ public class Pessoa {
     @Column(name = "perfil")
     private Perfil perfil;
     
+    @Null
     @ManyToMany
     @JoinTable(name = "pessoa_filme",
     joinColumns = 

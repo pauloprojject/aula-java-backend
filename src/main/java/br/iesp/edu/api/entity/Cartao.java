@@ -30,8 +30,8 @@ public class Cartao {
     private YearMonth validade;
     private String codigoSeguranca;
     private String nome;
-    // @Null
+    @Null
     @ManyToOne
-    @JoinColumn(name = "pessoa_id", nullable = false)
+    @JoinColumn(name = "pessoa_id", nullable = true)
     private Pessoa pessoa;
 }
