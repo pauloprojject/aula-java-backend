@@ -6,6 +6,7 @@ import br.iesp.edu.api.entity.Pessoa;
 import br.iesp.edu.api.repository.CartaoRepository;
 import br.iesp.edu.api.repository.PessoaRepository;
 import br.iesp.edu.api.util.Criptografar;
+import br.iesp.edu.api.util.EnvioEmail;
 import br.iesp.edu.api.util.PessoaFilmesSeries;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,8 @@ public class PessoaService {
         pessoa.setSenha(senhaCriptografada);
 
         Pessoa pessoaSalva = repository.save(pessoa);
+
+        EnvioEmail.enviarEmail(pessoa.getEmail(), "Cadastro", pessoa.getNome() + "Cadastrado com sucesso!");
 
         return pessoaSalva;
     }
